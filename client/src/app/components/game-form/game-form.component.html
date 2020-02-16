@@ -1,0 +1,32 @@
+<div class="col-md-4 offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <input type="text" name="titulo" [(ngModel)]="game.titulo" placeholder="Title" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <textarea name="descripcion" [(ngModel)]="game.descripcion" placeholder="Description" rows="2" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea name="d_completa" [(ngModel)]="game.d_completa" placeholder="Description Complete" rows="3" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="url" name="foto" [(ngModel)]="game.foto" placeholder="Image" class="form-control">
+                </div>
+                <button (click)="edit ? updateGame() : saveNewGame()" class="btn btn-success btn-block">
+                    Save
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card card-body text-center">
+        <img [src]="game.foto == '' ? '/assets/no-image.png' : game.foto " class="card-img-top">
+        <h3>{{game.titulo == '' ? 'Plugin Title' : game.titulo }}</h3>
+        <p>{{game.descripcion == '' ? 'Write Your Description' : game.descripcion }}</p>
+        <p>{{game.d_completa == '' ? 'Write Complete Description' : game.d_completa }}</p>
+    </div>
+</div>
